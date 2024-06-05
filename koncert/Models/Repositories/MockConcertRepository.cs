@@ -1,6 +1,6 @@
-﻿using koncert.Properties.Models.Entities;
+﻿using koncert.Models.Entities;
 
-namespace koncert.Properties.Models.Repositories
+namespace koncert.Models.Repositories
 {
     public class MockConcertRepository : IConcertRepository
     {
@@ -57,7 +57,7 @@ namespace koncert.Properties.Models.Repositories
                         {
                             new Chapter
                             {
-                                ChapterId = 1,  
+                                ChapterId = 1,
                                 Name = "Tool | Tool | Tool",
                                 Places = new List<Place>
                                 {
@@ -68,16 +68,16 @@ namespace koncert.Properties.Models.Repositories
                                         Duration = "2 godziny",
                                     },
                                 },
-                                
-                               
+
+
                             },
-        
+
                         },
 
-                    
+
                     },
-                
-                
+
+
                 },
                 Faq = new List<Faq>
                 {
@@ -96,12 +96,12 @@ namespace koncert.Properties.Models.Repositories
                         Content = "Zapowiedź wideo: https://youtu.be/MM62wjLrgmA?si=VcY21qbS5vMi5gEH"
                     },
                 },
-                Category= _categoryRepository.AllCategories.ToList()[1]
+                Category= _categoryRepository.AllCategories.ToList()[0]
             }
         };
         public IEnumerable<Concert> ConcertOfTheMonth => AllConcerts.Where(c => c.IsConcertOfTheMonth); //filtrowanie poprawnych wartości ustawionych na true
-        public IEnumerable<Concert> Recommended=> AllConcerts.Where(c => c.IsRecommended); //filtrowanie poprawnych wartości ustawionych na true
-        public Concert? GetConcertById(int concertId)=>AllConcerts.FirstOrDefault(c=>c.ConcertId == concertId);
+        public IEnumerable<Concert> Recommended => AllConcerts.Where(c => c.IsRecommended); //filtrowanie poprawnych wartości ustawionych na true
+        public Concert? GetConcertById(int concertId) => AllConcerts.FirstOrDefault(c => c.ConcertId == concertId);
 
 
     }

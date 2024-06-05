@@ -1,0 +1,52 @@
+﻿@model ConcertListViewModel //pobiera medoel koncert
+
+<h1>@Model.Title</h1>
+
+@foreach (var concert in Model.Concerts) //pętla do wyświetlania koncertów
+{
+    <div>
+        <h1>@concert.Category.Name</h1>
+        <h2>@concert.Name</h2>
+        <h3>@concert.Artist</h3>
+        <h3>@concert.Price.ToString("c")</h3>
+        <p>@concert.Description.Name</p>
+        <p>@concert.Description.Content</p>
+        <ul>
+            @foreach (var noteDescrp in concert.Description.NoteOneDescription) //wyswietla note opisu
+            {
+                <li>
+                    @noteDescrp.Content
+                </li>
+            }
+        </ul>
+        <div>
+            <img src="@concert.ImageUrl">
+        </div>
+        <div>
+            <ul>
+                @foreach (var content in concert.ConcertContent) //pobiera wszystkie informacje
+                {
+                    <li>
+                        <ul>
+                            @foreach (var chapter in content.chapters)
+                            {
+                                <li>
+                                    @chapter.Name
+                                    <ul>
+                                        @foreach (var place in chapter.Places)
+                                        {
+                                            <li>
+                                                @place.Name - @place.Duration
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+

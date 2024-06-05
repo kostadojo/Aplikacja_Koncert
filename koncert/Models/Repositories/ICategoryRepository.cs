@@ -1,6 +1,6 @@
-﻿using koncert.Properties.Models.Entities;
+﻿using koncert.Models.Entities;
 
-namespace koncert.Properties.Models.Repositories
+namespace koncert.Models.Repositories
 {
     public interface ICategoryRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace koncert.Properties.Models.Entities
+﻿namespace koncert.Models.Entities
 {
     public class Announcement
     {
