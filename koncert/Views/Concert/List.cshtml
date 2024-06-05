@@ -2,51 +2,26 @@
 
 <h1>@Model.Title</h1>
 
-@foreach (var concert in Model.Concerts) //pętla do wyświetlania koncertów
-{
-    <div>
-        <h1>@concert.Category.Name</h1>
-        <h2>@concert.Name</h2>
-        <h3>@concert.Artist</h3>
-        <h3>@concert.Price.ToString("c")</h3>
-        <p>@concert.Description.Name</p>
-        <p>@concert.Description.Content</p>
-        <ul>
-            @foreach (var noteDescrp in concert.Description.NoteOneDescription) //wyswietla note opisu
-            {
-                <li>
-                    @noteDescrp.Content
-                </li>
-            }
-        </ul>
-        <div>
-            <img src="@concert.ImageUrl">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    @foreach (var concert in Model.Concerts)
+    {
+        <div class="col">
+            <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top"
+                     width="188"
+                     height="225"
+                     src="@concert.ImageThumbnailUrl"
+                     alt="@concert.Name">
+                <div class="card-body">
+                    <h3 class="card-title">@concert.Category.Name</h3>
+                    <h5 class="card-text">@concert.Name</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="#" class="btn btn-primary">@concert.Price.ToString("c")</a>
+                        <small class="text-body-secondary">@concert.Artist</small>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <ul>
-                @foreach (var content in concert.ConcertContent) //pobiera wszystkie informacje
-                {
-                    <li>
-                        <ul>
-                            @foreach (var chapter in content.chapters)
-                            {
-                                <li>
-                                    @chapter.Name
-                                    <ul>
-                                        @foreach (var place in chapter.Places)
-                                        {
-                                            <li>
-                                                @place.Name - @place.Duration
-                                            </li>
-                                        }
-                                    </ul>
-                                </li>
-                            }
-                        </ul>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-}
+    }
+</div>
 
