@@ -137,7 +137,7 @@ namespace koncert.Models
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",
                         ImageThumbnailUrl = "/Images/webp/tool.webp",
-                        IsConcertOfTheMonth = false,
+                        IsConcertOfTheMonth = true,
                         IsRecommended = true,
                         Description = new Description
                         {
