@@ -4,9 +4,9 @@ namespace koncert.ViewModels;
 
 public class HomeViewModel
 {
-    public IEnumerable<Concert> ConcertOfTheMonth { get; }
-    public HomeViewModel(IEnumerable<Concert> concertOfTheMonth) 
+    public IEnumerable<Concert> Concert { get; }
+    public HomeViewModel(IEnumerable<Concert> concert) 
     {
-        ConcertOfTheMonth = concertOfTheMonth;
+        Concert = concert;
     }
 }

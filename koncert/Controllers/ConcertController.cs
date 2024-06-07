@@ -21,5 +21,15 @@ namespace koncert.Controllers
             var result = _concertRepository.AllConcerts;
             return View(concertListViewModel);
         }
+
+        public IActionResult Details(int id)
+        {
+            var concert = _concertRepository.GetConcertById(id);
+            if (concert == null)
+            {
+                return NotFound();
+            }
+            return View(concert);
+        }
     }
 }

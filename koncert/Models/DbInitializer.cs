@@ -23,8 +23,6 @@ namespace koncert.Models
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",
                         ImageThumbnailUrl = "/Images/webp/tool.webp",
-                        IsConcertOfTheMonth = false,
-                        IsRecommended = true,
                         Description = new Description
                         {
                             Name = "Description - Więcej informacji o wydarzeniu",
@@ -42,35 +40,7 @@ namespace koncert.Models
                             },
                             Content = "Description - Content"
                         },
-                        ConcertContent = new List<Content>
-                        {
-                            new Content
-                            {
-                                chapters = new List<Chapter>
-                                {
-                                    new Chapter
-                                    {
-                                        Name = "Content-Chapter-Name",
-                                        Places = new List<Place>
-                                        {
-                                            new Place { Name = "Place-Name", Duration = "Place-Duration" }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        Faq = new List<Faq>
-                        {
-                            new Faq { Question = "Pytanie 1", Answer = "Odpowiedz na pierwsze czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 2", Answer = "Odpowiedz na drugie czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 3", Answer = "Odpowiedz na trzecie czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 4", Answer = "Odpowiedz na czwarte czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 5", Answer = "Odpowiedz na piąte czesto zadawane pytanie." }
-                        },
-                        Announcements = new List<Announcement>
-                        {
-                            new Announcement { Content = "Annoucement - zapowiedź" }
-                        },
+                 
                         Category = Categories["METAL"]
                     },
                     new Concert
@@ -80,8 +50,7 @@ namespace koncert.Models
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",
                         ImageThumbnailUrl = "/Images/webp/tool.webp",
-                        IsConcertOfTheMonth = false,
-                        IsRecommended = true,
+
                         Description = new Description
                         {
                             Name = "Description - Więcej informacji o wydarzeniu",
@@ -98,35 +67,6 @@ namespace koncert.Models
                                 new NoteThreeOther { Content = "Content Nota 3 - Other" }
                             },
                             Content = "Description - Content"
-                        },
-                        ConcertContent = new List<Content>
-                        {
-                            new Content
-                            {
-                                chapters = new List<Chapter>
-                                {
-                                    new Chapter
-                                    {
-                                        Name = "Content-Chapter-Name",
-                                        Places = new List<Place>
-                                        {
-                                            new Place { Name = "Place-Name", Duration = "Place-Duration" }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        Faq = new List<Faq>
-                        {
-                            new Faq { Question = "Pytanie 1", Answer = "Odpowiedz na pierwsze czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 2", Answer = "Odpowiedz na drugie czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 3", Answer = "Odpowiedz na trzecie czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 4", Answer = "Odpowiedz na czwarte czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 5", Answer = "Odpowiedz na piąte czesto zadawane pytanie." }
-                        },
-                        Announcements = new List<Announcement>
-                        {
-                            new Announcement { Content = "Annoucement - zapowiedź" }
                         },
                         Category = Categories["METAL"]
                     },
@@ -137,8 +77,7 @@ namespace koncert.Models
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",
                         ImageThumbnailUrl = "/Images/webp/tool.webp",
-                        IsConcertOfTheMonth = true,
-                        IsRecommended = true,
+
                         Description = new Description
                         {
                             Name = "Description - Więcej informacji o wydarzeniu",
@@ -156,35 +95,7 @@ namespace koncert.Models
                             },
                             Content = "Description - Content"
                         },
-                        ConcertContent = new List<Content>
-                        {
-                            new Content
-                            {
-                                chapters = new List<Chapter>
-                                {
-                                    new Chapter
-                                    {
-                                        Name = "Content-Chapter-Name",
-                                        Places = new List<Place>
-                                        {
-                                            new Place { Name = "Place-Name", Duration = "Place-Duration" }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        Faq = new List<Faq>
-                        {
-                            new Faq { Question = "Pytanie 1", Answer = "Odpowiedz na pierwsze czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 2", Answer = "Odpowiedz na drugie czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 3", Answer = "Odpowiedz na trzecie czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 4", Answer = "Odpowiedz na czwarte czesto zadawane pytanie." },
-                            new Faq { Question = "Pytanie 5", Answer = "Odpowiedz na piąte czesto zadawane pytanie." }
-                        },
-                        Announcements = new List<Announcement>
-                        {
-                            new Announcement { Content = "Annoucement - zapowiedź" }
-                        },
+
                         Category = Categories["METAL"]
                     }
                 );

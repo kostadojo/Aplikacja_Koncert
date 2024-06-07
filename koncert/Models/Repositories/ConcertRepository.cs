@@ -17,27 +17,12 @@ namespace koncert.Models.Repositories
             .Include(c => c.Category)
             .Include(c => c.Description);
 
-        public IEnumerable<Concert> ConcertOfTheMonth 
-            => _koncertDbContext.Concerts
-            .Include(c => c.Category)
-            .Include(c => c.Description)
-            .Include(c => c.ConcertContent)
-            .Where(c => c.IsConcertOfTheMonth);
-        public IEnumerable<Concert> Recommended
-            => _koncertDbContext.Concerts
-            .Include(c => c.Category)
-            .Include(c => c.Description)
-            .Include(c => c.ConcertContent)
-            .Where(c => c.IsRecommended);
         public Concert? GetConcertById(int concertId)
             => _koncertDbContext.Concerts
             .Include(c => c.Category)
             .Include(c => c.Description.NoteOneDescription)
             .Include(c => c.Description.NoteTwoSell)
             .Include(c => c.Description.NoteThreeOther)
-            .Include(c => c.ConcertContent).ThenInclude(c => c.chapters!).ThenInclude(c => c.Places)
-            .Include(c => c.Faq)
-            .Include(c => c.Announcements)
             .FirstOrDefault(c => c.ConcertId == concertId);
 
     }

@@ -14,8 +14,8 @@ public class HomeController : Controller
     }
     public IActionResult Index()
     {
-        var concertOfTheMonth = _concertRepository.ConcertOfTheMonth; //pobiera kursy miesiąca
-        var homeViewModel = new HomeViewModel(concertOfTheMonth);
+        var concert = _concertRepository.AllConcerts; 
+        var homeViewModel = new HomeViewModel(concert);
         return View(homeViewModel);
     }
 }
