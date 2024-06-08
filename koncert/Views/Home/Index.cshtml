@@ -8,26 +8,6 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     @foreach (var concert in Model.Concert)
     {
-        <div class="col">
-            <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top"
-                     width="188"
-                     height="225"
-                     src="@concert.ImageThumbnailUrl"
-                     alt="@concert.Name">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">
-                            @concert.Name
-                        </a>
-                    </h5>
-                    <p class="card-text">@concert.Description.Name</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="#" class="btn btn-primary">@concert.Price.ToString("c")</a>
-                        <small class="text-body-secondary">@concert.Artist</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <partial name="_ConcertCard" model="concert"/>
     }
 </div>

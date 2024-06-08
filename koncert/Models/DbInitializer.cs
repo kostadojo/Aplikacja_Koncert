@@ -18,7 +18,7 @@ namespace koncert.Models
                 (
                     new Concert
                     {
-                        Name = "11.06| TAURON Arena | Kraków",
+                        Name = "11.06 | TAURON Arena | Kraków",
                         Artist = "Tool",
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",
@@ -45,7 +45,7 @@ namespace koncert.Models
                     },
                     new Concert
                     {
-                        Name = "11.06| TAURON Arena | Kraków",
+                        Name = "11.06 | TAURON Arena | Kraków",
                         Artist = "Pool",
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",
@@ -72,7 +72,7 @@ namespace koncert.Models
                     },
                     new Concert
                     {
-                        Name = "11.06| TAURON Arena | Kraków",
+                        Name = "11.06 | TAURON Arena | Kraków",
                         Artist = "Kool",
                         Price = 200,
                         ImageUrl = "/Images/webp/tool.webp",

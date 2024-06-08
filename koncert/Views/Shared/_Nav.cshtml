@@ -1,0 +1,27 @@
+﻿<nav class="navbar bg-body-tertiary">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+            <img src="@Url.Content("~/Images/concert_logo.jpg")" alt="Zostań na chwilę i poszukaj..." style="width: 100px; height: auto;">
+        </a>
+        <ul class="navbar-nav d-flex flex-row">
+            <li class="nav-item me-3">
+                <a class="nav-link"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    Główna
+                </a>
+            </li>
+            <li class="nav-item me-3">
+                <a class="nav-link"
+                   asp-controller="Concert"
+                   asp-action="List">
+                    Koncerty
+                </a>
+            </li>
+        </ul>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Szukaj" aria-label="Szukaj">
+            <button class="btn btn-outline-success" type="submit">Szukaj</button>
+        </form>
+    </div>
+</nav>
