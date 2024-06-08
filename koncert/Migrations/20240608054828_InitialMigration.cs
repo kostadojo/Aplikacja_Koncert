@@ -67,6 +67,27 @@ namespace koncert.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ShoppingCartItems",
+                columns: table => new
+                {
+                    ShoppingCartItemId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ConcertId = table.Column<int>(type: "int", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    ShoppingCartId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCartItems", x => x.ShoppingCartItemId);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCartItems_Concerts_ConcertId",
+                        column: x => x.ConcertId,
+                        principalTable: "Concerts",
+                        principalColumn: "ConcertId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NoteOneDescription",
                 columns: table => new
                 {
@@ -151,6 +172,11 @@ namespace koncert.Migrations
                 name: "IX_NoteTwoSell_DescriptionId",
                 table: "NoteTwoSell",
                 column: "DescriptionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCartItems_ConcertId",
+                table: "ShoppingCartItems",
+                column: "ConcertId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -163,6 +189,9 @@ namespace koncert.Migrations
 
             migrationBuilder.DropTable(
                 name: "NoteTwoSell");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCartItems");
 
             migrationBuilder.DropTable(
                 name: "Descriptions");

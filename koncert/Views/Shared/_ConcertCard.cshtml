@@ -20,6 +20,17 @@
                 <a href="#" class="btn btn-primary">@Model.Price.ToString("c")</a>
                 <small class="text-body-secondary">@Model.Artist</small>
             </div>
+            <div class="addToCart">
+                <p class="button">
+                    <a class="btn btn-secondary" 
+                    asp-controller="ShoppingCart" 
+                    asp-action="AddToShoppingCart" 
+                    asp-route-concertId="@Model.ConcertId">
+                        Kup Bilet
+                    </a>
+
+                </p>
+            </div>
         </div>
     </div>
 </div>

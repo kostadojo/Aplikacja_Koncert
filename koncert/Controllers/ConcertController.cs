@@ -1,4 +1,5 @@
-﻿using koncert.Models.Repositories;
+﻿using koncert.Models.Entities;
+using koncert.Models.Repositories;
 using koncert.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,19 +8,35 @@ namespace koncert.Controllers
     public class ConcertController : Controller
     {
         private readonly IConcertRepository _concertRepository;
+        private readonly ICategoryRepository _categoryRepository;
         
-        public ConcertController(IConcertRepository concertRepository) 
+        public ConcertController(IConcertRepository concertRepository, ICategoryRepository categoryRepository) 
         { 
             _concertRepository = concertRepository;
+            _categoryRepository = categoryRepository;   
         }
 
-        public IActionResult List()
+        public IActionResult List(string category)
         {
-            var concertListViewModel = new ConcertListViewModel(
-                _concertRepository.AllConcerts, 
-                "Wydarzenia w Twoim mieście!");
-            var result = _concertRepository.AllConcerts;
-            return View(concertListViewModel);
+            IEnumerable<Concert> concerts;
+            string? currentCategory;
+
+            if (string.IsNullOrEmpty(category))
+            {
+                concerts = _concertRepository.AllConcerts.OrderBy(p => p.ConcertId);
+                currentCategory = "Wszystkie";
+            }
+            else
+            {
+                concerts = _concertRepository.AllConcerts
+                    .Where(p => p.Category.Name == category)
+                    .OrderBy(p => p.ConcertId);
+
+                currentCategory = _categoryRepository.AllCategories
+                    .FirstOrDefault(c => c.Name == category)?.Name;
+            }
+
+            return View(new ConcertListViewModel(concerts, currentCategory));
         }
 
         public IActionResult Details(int id)

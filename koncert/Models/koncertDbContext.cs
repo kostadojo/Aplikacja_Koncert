@@ -14,6 +14,7 @@ namespace koncert.Models
         public DbSet<NoteOneDescription> NoteOneDescription { get; set; }
         public DbSet<NoteTwoSell> NoteTwoSell { get; set; }
         public DbSet<NoteThreeOther> NoteThreeOther { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
     }
 

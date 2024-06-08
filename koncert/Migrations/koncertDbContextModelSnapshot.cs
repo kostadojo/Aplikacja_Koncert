@@ -166,6 +166,30 @@ namespace koncert.Migrations
                     b.ToTable("NoteTwoSell");
                 });
 
+            modelBuilder.Entity("koncert.Models.Entities.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("ShoppingCartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoppingCartItemId"), 1L, 1);
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ConcertId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShoppingCartItemId");
+
+                    b.HasIndex("ConcertId");
+
+                    b.ToTable("ShoppingCartItems");
+                });
+
             modelBuilder.Entity("koncert.Models.Entities.Concert", b =>
                 {
                     b.HasOne("koncert.Models.Entities.Category", "Category")
@@ -211,6 +235,17 @@ namespace koncert.Migrations
                         .HasForeignKey("DescriptionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("koncert.Models.Entities.ShoppingCartItem", b =>
+                {
+                    b.HasOne("koncert.Models.Entities.Concert", "concert")
+                        .WithMany()
+                        .HasForeignKey("ConcertId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("concert");
                 });
 
             modelBuilder.Entity("koncert.Models.Entities.Category", b =>
