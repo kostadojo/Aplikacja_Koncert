@@ -8,13 +8,16 @@ namespace koncert.Models
         public koncertDbContext(DbContextOptions<koncertDbContext> options) : base(options)
         {
         }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Concert> Concerts { get; set; }
-        public DbSet<Description> Descriptions { get; set; }
-        public DbSet<NoteOneDescription> NoteOneDescription { get; set; }
-        public DbSet<NoteTwoSell> NoteTwoSell { get; set; }
-        public DbSet<NoteThreeOther> NoteThreeOther { get; set; }
-        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Category> Categories { get; set; } = default!;
+        public DbSet<Concert> Concerts { get; set; } = default!;
+        public DbSet<Description> Descriptions { get; set; } = default!;
+        public DbSet<NoteOneDescription> NoteOneDescription { get; set; } = default!;
+        public DbSet<NoteTwoSell> NoteTwoSell { get; set; } = default!;
+        public DbSet<NoteThreeOther> NoteThreeOther { get; set; } = default!;
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; } = default!;
+        public DbSet<Order> Orders { get; set; } = default!;
+        public DbSet<OrderDetail> OrderDetails { get; set; } = default!;
+
 
     }
 
