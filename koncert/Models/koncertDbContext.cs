@@ -1,9 +1,10 @@
 ﻿using koncert.Models.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace koncert.Models
 {
-    public class koncertDbContext : DbContext
+    public class koncertDbContext : IdentityDbContext
     {
         public koncertDbContext(DbContextOptions<koncertDbContext> options) : base(options)
         {
@@ -17,7 +18,6 @@ namespace koncert.Models
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; } = default!;
         public DbSet<Order> Orders { get; set; } = default!;
         public DbSet<OrderDetail> OrderDetails { get; set; } = default!;
-
 
     }
 
