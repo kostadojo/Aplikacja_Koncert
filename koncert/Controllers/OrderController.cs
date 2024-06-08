@@ -1,21 +1,51 @@
-﻿using koncert.Models.Repositories;
+﻿using koncert.Models.Entities;
+using koncert.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace koncert.Controllers;
-
-public class OrderController : Controller
+namespace koncert.Controllers
 {
-    private readonly IOrderRepository _orderRepository;
-    private readonly IShoppingCart _shoppingCart;
-
-    public OrderController(IOrderRepository orderRepository, IShoppingCart shoppingCart)
+    public class OrderController : Controller
     {
-        _orderRepository = orderRepository;
-        _shoppingCart = shoppingCart;
-    }
+        private readonly IOrderRepository _orderRepository;
+        private readonly IShoppingCart _shoppingCart;
 
-    public IActionResult Checkout()
-    {
-        return View();
+        public OrderController(IOrderRepository orderRepository, IShoppingCart shoppingCart)
+        {
+            _orderRepository = orderRepository;
+            _shoppingCart = shoppingCart;
+        }
+
+        [HttpGet]
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Checkout(Order order)
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
+
+            if (_shoppingCart.ShoppingCartItems.Count == 0)
+            {
+                ModelState.AddModelError("", "Puste zamówienie! Najpierw dodaj bilet na wydarzenie!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _orderRepository.CreateOrder(order);
+                _shoppingCart.ClearCart();
+                return RedirectToAction("CheckoutComplete");
+            }
+
+            return View(order);
+        }
+
+        public IActionResult CheckoutComplete()
+        {
+            ViewBag.CheckoutCompleteMessage = "Dziękujemy za zamówienie. Życzymy miłej zabawy!";
+            return View();
+        }
     }
 }
