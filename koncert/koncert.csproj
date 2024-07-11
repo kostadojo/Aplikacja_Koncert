@@ -20,20 +20,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Areas\Identity\Pages\Account\Login.cshtml.cs" />
+    <Compile Include="Areas\Identity\Pages\Account\Logout.cshtml.cs" />
+    <Compile Include="Areas\Identity\Pages\Account\Register.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Images\Contact\" />
     <Folder Include="wwwroot\Images\webp\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.29" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.29" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.29" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.31" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.31">
+    <None Include="Areas\Identity\Pages\Account\Login.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Logout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Register.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.32" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.32">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.17" />
   </ItemGroup>
 
 </Project>
