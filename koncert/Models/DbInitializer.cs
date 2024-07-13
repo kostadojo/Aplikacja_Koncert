@@ -40,7 +40,7 @@ namespace koncert.Models
                             },
                             Content = "Description - Content"
                         },
-                 
+
                         Category = Categories["METAL"]
                     },
                     new Concert
